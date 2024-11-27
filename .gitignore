@@ -1,0 +1,19 @@
+# Archivos y carpetas de Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Archivos generados por MSBuild
+*.cache
+*.csproj.nuget.dgspec.json
+*.assets.json
+*.AssemblyInfoInputs.cache
+
+# Carpetas de salida de compilación
+bin/
+obj/
+
+# Configuraciones editorconfig generadas
+*.editorconfig

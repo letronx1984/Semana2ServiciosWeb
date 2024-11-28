@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PracticaSemana2.Models.Productos>
+
+@{
+    ViewData["Title"] = "Filtrado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Filtrado</h1>
+<p>
+
+    <form asp-action="Filtrado" asp-controller="Productos">
+        <p>
+            Nombre de Producto
+        </p>
+        @Html.TextBox("nombre", "")
+        <button class="btn btn-secondary">Filtrar</button>
+    </form>
+</p>
+<p>
+    
+    @Html.ActionLink("Regresar al listado","Inicio","Productos")
+   
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.unidadmedida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.unidadmedida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
